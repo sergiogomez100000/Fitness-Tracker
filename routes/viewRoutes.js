@@ -1,16 +1,17 @@
 const path = require('path');
+const router = require('express').Router();
 
-module.exports = (app) => {
+module.exports = (router) => {
 //index
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/index.html'));
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname,'../public/html/index.html'));
 });
 //exercise
-app.get('/exercise', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/exercise.html'));
+router.get('/exercise', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/html/exercise.html'));
 });
 //stats
-app.get('/stats', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/stats.html'));
+router.get('/stats', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/html/stats.html'));
 });
 }
