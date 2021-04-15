@@ -23,8 +23,7 @@ module.exports = (router) => {
       console.log(body)
       db.Workout.findByIdAndUpdate({_id: params.id},
      
-      { $push: { excercises: body } })
-      // { upsert: true, useFindandModify: false })
+      { $push: { exercises: body } },{ upsert: true, useFindandModify: false, new: true } )
       .then((updatedWorkout) => {
         res.json(updatedWorkout);
         console.log("hit the api/workouts/:workout")
@@ -46,5 +45,6 @@ module.exports = (router) => {
       res.json(sevendays)
     })
     //sort by id 
+    aggregate.sort({field:"asc", test: -1})
   })
 };
