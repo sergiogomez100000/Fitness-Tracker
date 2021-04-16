@@ -39,12 +39,14 @@ module.exports = (router) => {
 
   router.get("/api/workouts/range", (req, res) => {
     //find all workouts from 7 days ;limit 7
-    db.Workout.find({}).limit(7)
-    .then((sevendays)=>{
-      console.log(sevendays)
-      res.json(sevendays)
-    })
-    //sort by id 
-    aggregate.sort({field:"asc", test: -1})
-  })
+    db.Workout.aggregate([
+      { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
+    ])
+      .limit(7)
+      .sort({_id: -1})
+      .then((dbWorkouts) => {
+        console.log(dbWorkouts);
+        res.json(dbWorkouts);
+      });
+  });
 };
