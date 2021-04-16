@@ -25,7 +25,7 @@ module.exports = (router) => {
       console.log(body)
       db.Workout.findByIdAndUpdate({_id: params.id},
      
-      { $push: { exercises: body } },{ upsert: true, useFindandModify: false, new: true } )
+      { $push: { exercises: body } },{new: true } )
       .then((updatedWorkout) => {
         res.json(updatedWorkout);
         console.log("hit the api/workouts/:workout")
