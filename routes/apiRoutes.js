@@ -13,6 +13,8 @@ module.exports = (router) => {
         res.json(workouts);
         console.log("hit the api/workouts");
       }
+    }).catch((err)=>{
+      res.json(err);
     });
   });
   //add excerise, set id, push to model, set true
