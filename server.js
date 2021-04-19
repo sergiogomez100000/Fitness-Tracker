@@ -15,8 +15,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true });
-
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/WorkoutDB',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
 
 require('./routes/apiRoutes.js')(app)
 require('./routes/viewRoutes.js')(app)
