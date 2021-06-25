@@ -10,6 +10,13 @@ module.exports = (router) => {
       if (err) {
         console.log(err);
       } else {
+        workouts.forEach(workout =>{
+          var total = 0;
+          workout.exercises.forEach(e=>{
+            total += e.duration
+          })
+          workout.totalDuration = total;
+        })
         res.json(workouts);
         console.log("hit the api/workouts");
       }
