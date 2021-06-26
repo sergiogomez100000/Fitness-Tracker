@@ -16,7 +16,7 @@ app.use(express.static("public"));
 
 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/workoutdb',
+    process.env.MONGODB_URI || 'mongodb://localhost/WorkoutDB',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -25,8 +25,8 @@ mongoose.connect(
     }
   );
 
-require('./routes/apiRoutes.js')(app)
-require('./routes/viewRoutes.js')(app)
+app.use(require('./routes/apiRoutes.js'))
+app.use(require('./routes/viewRoutes.js'))
 
 
 app.listen(PORT, () => {
