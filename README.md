@@ -18,7 +18,9 @@ This application is deployed to Heroku so no need to install.
 Anyone that wants to keep track of their workouts daily and weekly.
 
 ## Screenshots
-<img src="">
+<img src="images\Fitness-Tracker-AddWorkout.png">
+<img src="images\Fitness-Tracker-LastWorkout.png">
+<img src="images\Fitness-Tracker-Stats.png">
 
 ## Links
 A link to my deployed application here(https://workout-tracker1996.herokuapp.com/?id=607de1f18bdcf200159acc53). A link to my Github repository (https://github.com/sergiogomez100000/Fitness-Tracker).
