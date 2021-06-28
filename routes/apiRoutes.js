@@ -16,19 +16,14 @@ module.exports = (router) => {
       }
     ])
       .then((workoutdb) => {
-        res.json(workoutdb);
-      })
-      .catch((err) => {
-        res.json(err);
-      })
-    db.Workout.find({})
-      .then((workoutdb) => {
+        db.Workout.find({})
         res.json(workoutdb);
         console.log("hit the api/workouts");
       })
       .catch((err) => {
         res.json(err);
-      });
+      })
+    
     //add excerise, set id, push to model, set true
     // db.Workout.findOneAndUpdate(
     // { _id: params.id },
